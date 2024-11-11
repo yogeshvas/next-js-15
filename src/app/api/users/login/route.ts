@@ -44,10 +44,7 @@ export async function POST(request: NextRequest) {
       httpOnly: true,
     });
     return response;
-  } catch (error) {
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
-    );
+  } catch (error: any) {
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
